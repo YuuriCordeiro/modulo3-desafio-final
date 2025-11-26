@@ -86,7 +86,8 @@ A partir do Nmap (`-sV -sC`):
 - FTP (vsFTPd) com acesso anônimo  
 - MySQL Server acessível via phpMyAdmin  
 - Diretórios configurados sem proteção  
-- Possível uso de engine PHP vulnerável a XSS e SQL Injection  
+- Possível uso de engine PHP vulnerável a XSS e SQL Injection
+![Evidência nmap](Anexos/nmap.png)
 
 ## 9. Resultados e Vulnerabilidades Encontradas
 
@@ -109,59 +110,72 @@ Cada item contém:
 - **Password:** <Enter>  
 - **Arquivo obtido:** `welcome.txt`  
 - **FLAG →** `FLAG{ftp_4n0nym0us_4cc3ss}`
-  ![Evidência FTP Anônimo](Anexos/1FLAG-ftp-anonymous-access.png)
+![Evidência FTP Anônimo](Anexos/1FLAG-ftp-anonymous-access.png)
 
 ### 2) FTP – Senhas em arquivo exposto
 - **Local:** `/confidential/passwords.txt`  
 - **FLAG →** `FLAG{p4ssw0rd_f1l3_d1sc0v3ry}`
+![Evidência FTP Password](Anexos/2FLAG-ftp-password-file-discovery.png)
 
 ### 3) Exposição do robots.txt
 - **URL:** `http://98.95.207.28/robots.txt`  
 - **Diretórios sensíveis revelados**  
 - **FLAG →** `FLAG{r0b0ts_txt_l34k4g3}`
+![Evidência robots](Anexos/3FLAG-robot-txt.png)
 
 ### 4) Credenciais de Banco expostas
 - **URL:** `http://98.95.207.28/config/database.php.txt`  
 - **FLAG →** `FLAG{d4t4b4s3_cr3d3nt14ls_3xp0s3d}`
+![Evidência database](Anexos/4FLAG-database-credential-exposed.png)
 
 ### 5) SQL Injection – Login sem senha
 - **Payload usado:** `' OR '1'='1`  
 - **FLAG →** `FLAG{sql_1nj3ct10n_m4st3r}`
+![Evidência sqlinjection](Anexos/5FLAG-SQLinjection.png)
 
 ### 6) XSS – Cookie exposto via Storage
 - **Payload usado:** `"><script>alert(1)</script>`  
 - **Local:** DevTools → Storage → Cookies  
 - **FLAG →** `FLAG{xss_r3fl3ct3d_vuln3r4b1l1ty}`
+![Evidência xss](Anexos/6FLAG-XSSreflected.png)
 
 ### 7) Código Fonte – Flag oculta no HTML
 - **URL:** `http://98.95.207.28/`  
 - **Ação:** Ctrl+U  
 - **FLAG →** `FLAG{b4s1c_s0urc3_c0d3_1nsp3ct10n}`
+![Evidência basicsource](Anexos/7FLAG-basic-source.png)
 
 ### 8) Escalada de Privilégio (phpMyAdmin)
 - **Ação:** Inserir novo usuário admin na tabela users  
 - **Login como superadmin em:** `http://98.95.207.28/admin.php`  
 - **FLAG →** `FLAG{pr1v1l3g3_3sc4l4t10n_succ3ss}`
+![Evidência privilege](Anexos/8FLAG-privilege-escalation.png)
 
 ### 9) Tabela secreta com dados ocultos
 - **Local:** Techcorp_db > secret_data > browse  
 - **FLAG →** `FLAG{h1dd3n_d4t4_1n_d4t4b4s3}`
+![Evidência hidden](Anexos/9FLAG-hiden-data.png)
 
 ### 10) Descoberta de VIEW no MySQL
 - **Local:** View sensitie_info  
 - **FLAG →** `FLAG{v13w_d1sc0v3ry_4dv4nc3d}`
+![Evidência view](Anexos/10FLAG-view-discoery.png)
 
 ### 11) Vazamento de credenciais via /.git
 - **Ferramenta:** msfconsole + curl  
 - **FLAG →** `FLAG{g1t_cr3d3nt14ls_l34k}`
+![Evidência credencials](Anexos/11FLAG-git-credencials.png)
 
 ### 12) Descoberta de Painel Secreto
 - **URL obtida após varredura de páginas administrativas:** `http://98.95.207.28/panel.php`  
 - **FLAG →** `FLAG{s3cr3t_p4n3l_d1sc0v3ry}`
+![Evidência secret](Anexos/12FLAG-secret-painel.png)
 
 ### 13) Exposição de arquivo de configuração via FTP
 - **Arquivo:** `users.conf`  
 - **FLAG →** `FLAG{c0nf1g_f1l3_r34d}`
+![Evidência config](Anexos/13FLAG-config-file.png)
+
 
 ---
 
@@ -221,6 +235,7 @@ Todas as flags foram obtidas através de falhas reais, com impacto alto ou crít
 7. Remover repositórios Git acessíveis publicamente  
 8. Política de senhas seguras e rotatividade periódica  
 9. Logging e monitoramento de tentativas suspeitas
+
 
 
 
