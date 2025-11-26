@@ -109,6 +109,7 @@ Cada item contém:
 - **Password:** <Enter>  
 - **Arquivo obtido:** `welcome.txt`  
 - **FLAG →** `FLAG{ftp_4n0nym0us_4cc3ss}`
+  ![Evidência FTP Anônimo](Anexos/1FLAG-ftp-anonymous-access.png)
 
 ### 2) FTP – Senhas em arquivo exposto
 - **Local:** `/confidential/passwords.txt`  
@@ -220,5 +221,6 @@ Todas as flags foram obtidas através de falhas reais, com impacto alto ou crít
 7. Remover repositórios Git acessíveis publicamente  
 8. Política de senhas seguras e rotatividade periódica  
 9. Logging e monitoramento de tentativas suspeitas
+
 
 
