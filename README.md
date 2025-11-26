@@ -88,7 +88,6 @@ A partir do Nmap (`-sV -sC`):
 - Diretórios configurados sem proteção  
 - Possível uso de engine PHP vulnerável a XSS e SQL Injection  
 
-...
 ## 9. Resultados e Vulnerabilidades Encontradas
 
 A seguir estão todas as vulnerabilidades exploradas e flags coletadas, em ordem cronológica, conforme o passo a passo.
@@ -221,4 +220,5 @@ Todas as flags foram obtidas através de falhas reais, com impacto alto ou crít
 7. Remover repositórios Git acessíveis publicamente  
 8. Política de senhas seguras e rotatividade periódica  
 9. Logging e monitoramento de tentativas suspeitas
+
 
